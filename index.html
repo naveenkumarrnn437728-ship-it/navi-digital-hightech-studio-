@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NAVI DIGITAL HIGH TECH STUDIO & VIDEOS - Photography, Videography, Printing, Framing and Drone Services">
+<title>NAVI DIGITAL HIGH TECH STUDIO & VIDEOS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+  --purple:#6d2fc5;
+  --purple2:#8b45e8;
+  --cyan:#12bfc5;
+  --dark:#111426;
+  --gold:#d9a93d;
+  --light:#f7f7fb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;color:#171717;background:#fff}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font-family:inherit}
+.container{width:92%;max-width:1200px;margin:auto}
+
+/* HEADER */
+header{height:82px;background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 15px #0002}
+.navbar{width:94%;max-width:1400px;height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;min-width:245px}
+.brand img{width:72px;height:58px;object-fit:cover;border-radius:8px;background:#050505}
+.brand-title{color:var(--purple);font-weight:800;font-size:18px;line-height:1.05}
+.brand-title span{color:#19aebd}
+.brand small{display:block;color:#555;font-size:8px;letter-spacing:3px;margin-top:4px}
+.nav{display:flex;align-items:center;gap:23px;font-size:11px;font-weight:700}
+.nav a{padding:31px 0;position:relative}
+.nav a:hover,.nav a.active{color:var(--purple)}
+.nav a.active:after{content:"";position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--purple)}
+.call-btn{background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;padding:12px 16px;border-radius:8px;font-size:11px;font-weight:700;white-space:nowrap}
+.menu{display:none;font-size:25px;color:var(--purple);cursor:pointer}
+
+/* HERO SLIDER */
+.hero{height:500px;position:relative;overflow:hidden;background:#111;color:#fff}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;background-position:center;background-size:cover}
+.slide.active{opacity:1}
+.slide:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#000e 0%,#000b 42%,#0002 100%)}
+.slide-content{position:relative;z-index:2;padding-top:105px}
+.slide-content h1{font-size:43px;line-height:1.13;max-width:600px;font-weight:800}
+.slide-content h1 span{color:#9148ed}
+.slide-content p{max-width:510px;margin-top:15px;font-size:14px;line-height:1.8}
+.hero-icons{display:flex;gap:24px;margin-top:22px;font-size:12px}
+.hero-icons div{display:flex;align-items:center;gap:8px}
+.hero-icons i{font-size:22px}
+.hero-buttons{display:flex;gap:12px;margin-top:27px}
+.btn{border:0;cursor:pointer;padding:13px 24px;border-radius:6px;font-size:11px;font-weight:800;display:inline-flex;align-items:center;gap:9px}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-whatsapp{background:#08c96d;color:#fff}
+.slider-dots{position:absolute;z-index:5;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:9px}
+.slider-dots button{width:10px;height:10px;border-radius:50%;border:0;background:#fff;cursor:pointer;padding:0}
+.slider-dots button.active{background:var(--purple)}
+.slider-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:38px;height:38px;border:1px solid #fff;border-radius:50%;background:#0005;color:#fff;cursor:pointer;font-size:17px}
+.prev{left:15px}.next{right:15px}
+
+/* TITLES */
+.section-title{text-align:center;margin:40px 0 22px}
+.section-title small{font-size:11px;font-weight:700;color:#555}
+.section-title h2{font-size:28px;font-weight:800}
+.section-title h2 span{color:var(--purple)}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+.service{padding:17px 8px;text-align:center;min-height:190px;border:1px solid #eee;border-radius:8px;box-shadow:0 3px 10px #00000010;transition:.3s}
+.service:hover{transform:translateY(-5px);box-shadow:0 10px 22px #6d2fc52b}
+.service-icon{width:58px;height:58px;border-radius:50%;margin:auto;background:linear-gradient(135deg,#5d29b7,#843fe1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px}
+.service h3{font-size:11px;margin:10px 0 6px}
+.service p{font-size:8.5px;color:#666;line-height:1.6}
+.learn{display:block;margin-top:10px;color:var(--purple);font-size:8.5px;font-weight:700}
+
+/* WHY */
+.why{margin-top:28px;padding:21px;border-radius:7px;color:#fff;background:linear-gradient(100deg,#7131ca,#09b9ba);display:grid;grid-template-columns:1.15fr repeat(6,1fr);align-items:center}
+.why-title{font-size:16px;font-weight:800}
+.why-item{text-align:center;border-left:1px solid #ffffff66;padding:0 8px}
+.why-item i{font-size:23px;margin-bottom:6px}
+.why-item h4{font-size:9px;line-height:1.45}
+
+/* GALLERY */
+.tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{border:1px solid #ddd;background:#fff;padding:6px 17px;border-radius:20px;font-size:9px;cursor:pointer}
+.tabs button.active,.tabs button:hover{background:var(--purple);color:#fff}
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}
+.gallery-item{height:155px;border-radius:5px;overflow:hidden;display:block}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.gallery-item:hover img{transform:scale(1.08)}
+
+/* PACKAGES */
+.package-wrap{background:var(--light);padding:5px 0 35px;margin-top:35px}
+.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.package{border-radius:10px;background:#fff;padding:23px;box-shadow:0 3px 15px #00000012;border-top:4px solid var(--purple)}
+.package h3{font-size:17px;color:var(--purple)}
+.package .price{font-size:22px;font-weight:800;margin:8px 0 13px}
+.package ul{list-style:none;font-size:10px;color:#555;line-height:2}
+.package li:before{content:"✓";color:var(--purple);font-weight:800;margin-right:7px}
+.frame-rates{margin-top:18px;background:#fff;border-radius:8px;padding:17px;box-shadow:0 2px 10px #0001}
+.frame-rates h3{text-align:center;color:var(--purple);font-size:14px;margin-bottom:12px}
+.rate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rate{border:1px solid #eee;border-radius:7px;text-align:center;padding:12px}
+.rate strong{display:block;font-size:11px}
+.rate b{color:var(--purple);font-size:15px}
+
+/* REVIEWS */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
+.review{padding:18px;border-radius:9px;box-shadow:0 3px 14px #00000012}
+.stars{color:#ffc400;margin-bottom:7px}
+.review p{font-size:10px;line-height:1.7}
+.reviewer{font-size:10px;font-weight:700;margin-top:12px}
+
+/* FOOTER */
+footer{background:var(--dark);color:#fff;padding:38px 0 15px}
+.footer-grid{display:grid;grid-template-columns:1.35fr 1fr 1.15fr 1.25fr;gap:30px}
+.footer-brand img{width:70px;height:55px;object-fit:cover;border-radius:7px;background:#000}
+.footer-brand p,.footer-links a,.contact-line{font-size:10px;color:#ddd;line-height:1.7}
+.footer-brand p{margin-top:10px}
+.footer-title{font-size:13px;margin-bottom:13px}
+.footer-links a{display:block;margin:7px 0}
+.contact-line{display:flex;gap:9px;margin:9px 0}
+.contact-line i{color:#1cc8c0}
+.social{display:flex;gap:10px;margin-top:15px}
+.social a{width:30px;height:30px;border-radius:50%;background:#252b43;display:flex;align-items:center;justify-content:center}
+.booking-mini input,.booking-mini select{width:100%;height:34px;margin-bottom:8px;padding:7px;border:1px solid #555;background:#171c30;color:#fff;border-radius:4px;font-size:9px}
+.booking-mini button{width:100%;padding:10px;border:0;border-radius:4px;background:var(--purple);color:#fff;font-size:10px;font-weight:800;cursor:pointer}
+.copyright{text-align:center;border-top:1px solid #303548;margin-top:25px;padding-top:13px;color:#ccc;font-size:9px}
+
+/* WHATSAPP */
+.whatsapp{position:fixed;right:18px;bottom:20px;width:58px;height:58px;border-radius:50%;background:#08c96d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:29px;box-shadow:0 5px 18px #0005;z-index:900}
+
+/* BOOKING MODAL */
+.modal{position:fixed;inset:0;background:#000a;z-index:2000;display:none;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.modal-box{width:min(560px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:14px;padding:25px;position:relative;box-shadow:0 15px 50px #0008}
+.modal-box h2{font-size:23px;color:var(--purple)}
+.modal-box>p{font-size:10px;color:#666;margin:5px 0 18px}
+.close{position:absolute;right:17px;top:12px;border:0;background:#eee;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field.full{grid-column:1/-1}
+.field label{font-size:10px;font-weight:700}
+.field input,.field select,.field textarea{width:100%;padding:11px;border:1px solid #ddd;border-radius:6px;font-size:11px;outline:none}
+.field textarea{min-height:75px;resize:vertical}
+.submit-book{width:100%;margin-top:15px;border:0;border-radius:7px;padding:13px;background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;font-weight:800;cursor:pointer}
+.note{font-size:9px;color:#777;margin-top:9px;text-align:center}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+ .nav{gap:12px}.services{grid-template-columns:repeat(4,1fr)}
+ .why{grid-template-columns:repeat(3,1fr);gap:16px}.why-title{grid-column:1/-1;text-align:center}
+ .why-item{border:0}.gallery{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+ header{height:70px}.brand{min-width:0}.brand img{width:52px;height:45px}.brand-title{font-size:13px}.brand small{display:none}
+ .nav{display:none;position:absolute;top:70px;left:0;width:100%;background:#fff;flex-direction:column;gap:0;padding:8px 0;box-shadow:0 8px 15px #0002}
+ .nav.show{display:flex}.nav a{width:100%;text-align:center;padding:12px}.call-btn{display:none}.menu{display:block}
+ .hero{height:530px}.slide-content{padding-top:85px}.slide-content h1{font-size:31px}.slide-content p{font-size:12px}
+ .hero-icons{flex-direction:column;gap:10px}.hero-buttons{flex-direction:column;width:190px}
+ .services{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}
+ .reviews,.packages{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+ .container{width:94%}.hero{height:500px}.slide-content h1{font-size:27px}
+ .why{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}
+ .rate-grid{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<a class="brand" href="#home">
+<img src="navi-logo-10.png" alt="NAVI Logo 10">
+<div>
+<div class="brand-title">NAVI <span>DIGITAL HIGH</span></div>
+<small>TECH STUDIO & VIDEOS</small>
+</div>
+</a>
+
+<nav class="nav" id="nav">
+<a class="active" href="#home">HOME</a>
+<a href="#about">ABOUT US</a>
+<a href="#services">SERVICES</a>
+<a href="#gallery">GALLERY</a>
+<a href="#packages">PACKAGES</a>
+<a href="#reviews">REVIEWS</a>
+<a href="#contact">CONTACT US</a>
+</nav>
+
+<a class="call-btn" href="tel:+919360627826"><i class="fa-solid fa-phone"></i> 9360627826</a>
+<div class="menu" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+</div>
+</header>
+
+<!-- HERO SLIDESHOW -->
+<section class="hero" id="home">
+
+<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85')">
+<div class="container slide-content">
+<h1>CAPTURING MEMORIES<br><span>CREATING STORIES</span></h1>
+<p>We transform your special moments into timeless memories with creativity and passion.</p>
+<div class="hero-icons">
+<div><i class="fa-solid fa-camera"></i> Photography</div>
+<div><i class="fa-solid fa-video"></i> Videography</div>
+<div><i class="fa-solid fa-image"></i> Printing & Framing</div>
+</div>
+<div class="hero-buttons">
+<button class="btn btn-primary" onclick="openBooking()">BOOK NOW <i class="fa-solid fa-arrow-right"></i></button>
+<a class="btn btn-whatsapp" href="https://wa.me/919360627826" target="_blank"><i class="fa-brands fa-whatsapp"></i> WHATSAPP US</a>
+</div>
+</div>
+</div>
+
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=85')">
+<div class="container slide-content">
+<h1>YOUR SPECIAL DAY<br><span>OUR CREATIVE STORY</span></h1>
+<p>Wedding photography, cinematic videography and beautiful memories for every celebration.</p>
+<div class="hero-buttons">
+<button class="btn btn-primary" onclick="openBooking()">BOOK YOUR DATE <i class="fa-solid fa-calendar-check"></i></button>
+<a class="btn btn-whatsapp" href="https://wa.me/919360627826" target="_blank"><i class="fa-brands fa-whatsapp"></i> WHATSAPP US</a>
+</div>
+</div>
+</div>
+
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=85')">
+<div class="container slide-content">
+<h1>EVENTS THAT<br><span>DESERVE TO BE REMEMBERED</span></h1>
+<p>Professional event coverage with photography, video and creative editing.</p>
+<div class="hero-buttons">
+<button class="btn btn-primary" onclick="openBooking()">GET A QUOTE</button>
+<a class="btn btn-whatsapp" href="https://wa.me/919360627826" target="_blank"><i class="fa-brands fa-whatsapp"></i> WHATSAPP US</a>
+</div>
+</div>
+</div>
+
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1800&q=85')">
+<div class="container slide-content">
+<h1>PRINT • FRAME • <span>CHERISH</span></h1>
+<p>Quality photo printing, custom frames and albums for memories you can keep forever.</p>
+<div class="hero-buttons">
+<button class="btn btn-primary" onclick="openBooking()">BOOK NOW</button>
+</div>
+</div>
+</div>
+
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1800&q=85')">
+<div class="container slide-content">
+<h1>PHOTOGRAPHY<br><span>BEYOND VISION</span></h1>
+<p>Portraits, events, drone service and creative visual storytelling by NAVI.</p>
+<div class="hero-buttons">
+<button class="btn btn-primary" onclick="openBooking()">BOOK NOW</button>
+</div>
+</div>
+</div>
+
+<button class="slider-arrow prev" onclick="changeSlide(-1)">‹</button>
+<button class="slider-arrow next" onclick="changeSlide(1)">›</button>
+<div class="slider-dots" id="dots"></div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+<div class="section-title"><small>WHAT WE OFFER</small><h2>OUR <span>SERVICES</span></h2></div>
+<div class="services">
+
+<div class="service"><div class="service-icon"><i class="fa-solid fa-user"></i></div><h3>PASSPORT<br>PHOTOS</h3><p>High quality passport photos in minutes</p><a class="learn" href="#contact">LEARN MORE →</a></div>
+<div class="service"><div class="service-icon"><i class="fa-solid fa-camera"></i></div><h3>STUDIO<br>PORTRAITS</h3><p>Professional studio portraits & photoshoots</p><a class="learn" href="#contact">LEARN MORE →</a></div>
+<div class="service"><div class="service-icon"><i class="fa-solid fa-ring"></i></div><h3>WEDDING<br>PHOTOGRAPHY</h3><p>Candid & traditional wedding photography</p><a class="learn" href="#contact">LEARN MORE →</a></div>
+<div class="service"><div class="service-icon"><i class="fa-solid fa-video"></i></div><h3>WEDDING<br>VIDEOGRAPHY</h3><p>Cinematic wedding films to cherish forever</p><a class="learn" href="#contact">LEARN MORE →</a></div>
+<div class="service"><div class="service-icon"><i class="fa-solid fa-calendar-check"></i></div><h3>EVENT<br>COVERAGE</h3><p>All types of events covered professionally</p><a class="learn" href="#contact">LEARN MORE →</a></div>
+<div class="service"><div class="service-icon"><i class="fa-solid fa-print"></i></div><h3>PHOTO<br>PRINTING</h3><p>Instant photo printing in various sizes</p><a class="learn" href="#packages">LEARN MORE →</a></div>
+<div class="service"><div class="service-icon"><i class="fa-regular fa-image"></i></div><h3>FRAMES &<br>ALBUMS</h3><p>Beautiful frames & customized albums</p><a class="learn" href="#packages">LEARN MORE →</a></div>
+
+</div>
+</div>
+</section>
+
+<!-- WHY -->
+<section>
+<div class="container">
+<div class="why">
+<div class="why-title">WHY<br>CHOOSE US?</div>
+<div class="why-item"><i class="fa-solid fa-camera"></i><h4>HIGH QUALITY<br>EQUIPMENT</h4></div>
+<div class="why-item"><i class="fa-solid fa-users"></i><h4>EXPERIENCED<br>PROFESSIONALS</h4></div>
+<div class="why-item"><i class="fa-solid fa-truck-fast"></i><h4>FAST<br>DELIVERY</h4></div>
+<div class="why-item"><i class="fa-solid fa-award"></i><h4>AFFORDABLE<br>PRICING</h4></div>
+<div class="why-item"><i class="fa-regular fa-face-smile"></i><h4>CUSTOMER<br>SATISFACTION</h4></div>
+<div class="why-item"><i class="fa-solid fa-sliders"></i><h4>CREATIVE<br>EDITING</h4></div>
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+<div class="container">
+<div class="section-title"><h2>OUR <span>GALLERY</span></h2></div>
+<div class="tabs">
+<button class="active">ALL</button><button>WEDDING</button><button>PRE WEDDING</button><button>PORTRAITS</button><button>EVENTS</button><button>FRAMES</button><button>DRONE</button>
+</div>
+<div class="gallery">
+<a class="gallery-item"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=700&q=80" alt="Wedding photography"></a>
+<a class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Wedding couple"></a>
+<a class="gallery-item"><img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=700&q=80" alt="Portrait"></a>
+<a class="gallery-item"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=80" alt="Event"></a>
+<a class="gallery-item"><img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=700&q=80" alt="Photo frame"></a>
+<a class="gallery-item"><img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=700&q=80" alt="Drone photography"></a>
+</div>
+</div>
+</section>
+
+<!-- PACKAGES + FRAME RATES -->
+<section id="packages" class="package-wrap">
+<div class="container">
+<div class="section-title"><small>OUR PRICE PLANS</small><h2>PHOTO & <span>WEDDING PACKAGES</span></h2></div>
+
+<div class="packages">
+<div class="package">
+<h3>WEDDING PACKAGE</h3>
+<div class="price">₹25,000 – ₹60,000</div>
+<ul>
+<li>Photography</li><li>Videography</li><li>Editing</li><li>Album Designing</li><li>Photo Printing</li><li>Frame</li><li>Pen Drive Delivery</li>
+</ul>
+<button class="btn btn-primary" onclick="openBooking()">BOOK THIS PACKAGE</button>
+</div>
+
+<div class="package">
+<h3>STUDIO & PORTRAIT</h3>
+<div class="price">Custom Quote</div>
+<ul>
+<li>Studio Portraits</li><li>Passport Photos</li><li>Family Photos</li><li>Professional Editing</li><li>Photo Printing</li><li>Frames & Albums</li>
+</ul>
+<button class="btn btn-primary" onclick="openBooking()">GET QUOTE</button>
+</div>
+
+<div class="package">
+<h3>EVENT COVERAGE</h3>
+<div class="price">Custom Quote</div>
+<ul>
+<li>Birthday Events</li><li>Engagement</li><li>Reception</li><li>School & College Events</li><li>Photography</li><li>Videography</li><li>Editing</li>
+</ul>
+<button class="btn btn-primary" onclick="openBooking()">BOOK EVENT</button>
+</div>
+</div>
+
+<div class="frame-rates">
+<h3>FRAMES – STARTING RATES</h3>
+<div class="rate-grid">
+<div class="rate"><strong>12 × 8</strong><b>₹350</b></div>
+<div class="rate"><strong>12 × 10</strong><b>₹550</b></div>
+<div class="rate"><strong>12 × 15</strong><b>₹900</b></div>
+</div>
+<p style="text-align:center;font-size:9px;color:#777;margin-top:10px">Other frame sizes available. Final price may vary by frame type and finish.</p>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+<div class="container">
+<div class="section-title"><h2>WHAT OUR <span>CLIENTS SAY</span></h2></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>"Excellent photography and videography! Very professional service."</p><div class="reviewer">— Priya S.</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>"Our wedding memories were beautifully captured. Highly recommended."</p><div class="reviewer">— Karthik R.</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>"Fast service for passport photos, printing and framing."</p><div class="reviewer">— Meena L.</div></div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+<div class="container">
+<div class="footer-grid">
+
+<div class="footer-brand">
+<img src="navi-logo-10.png" alt="NAVI Logo">
+<p><b>NAVI DIGITAL HIGH TECH STUDIO & VIDEOS</b></p>
+<p>Photography • Videography • Editing • Printing • Framing • Drone Service</p>
+<div class="social">
+<a href="https://wa.me/919360627826" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="tel:+919360627826"><i class="fa-solid fa-phone"></i></a>
+<a href="mailto:navidigital1820@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+
+<div>
+<h3 class="footer-title">QUICK LINKS</h3>
+<div class="footer-links">
+<a href="#home">› Home</a><a href="#services">› Services</a><a href="#gallery">› Gallery</a><a href="#packages">› Packages</a><a href="#reviews">› Reviews</a><a href="#contact">› Contact</a>
+</div>
+</div>
+
+<div>
+<h3 class="footer-title">CONTACT US</h3>
+<div class="contact-line"><i class="fa-solid fa-phone"></i><a href="tel:+919360627826">9360627826</a></div>
+<div class="contact-line"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/919360627826" target="_blank">9360627826</a></div>
+<div class="contact-line"><i class="fa-solid fa-envelope"></i><a href="mailto:navidigital1820@gmail.com">navidigital1820@gmail.com</a></div>
+<div class="contact-line"><i class="fa-solid fa-location-dot"></i>Address will be updated soon</div>
+</div>
+
+<div class="booking-mini">
+<h3 class="footer-title">BOOK APPOINTMENT</h3>
+<form onsubmit="openBooking();return false">
+<input type="text" placeholder="Your Name" required>
+<input type="tel" placeholder="Phone Number" required>
+<select required><option value="">Select Service</option><option>Wedding Photography</option><option>Wedding Videography</option><option>Event Coverage</option><option>Studio Portraits</option><option>Photo Printing</option><option>Frames & Albums</option></select>
+<button type="submit">BOOK NOW</button>
+</form>
+</div>
+
+</div>
+<div class="copyright">© 2026 NAVI DIGITAL HIGH TECH STUDIO & VIDEOS. All Rights Reserved.</div>
+</div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919360627826" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<!-- BOOK NOW SECOND WINDOW -->
+<div class="modal" id="bookingModal" onclick="outsideClose(event)">
+<div class="modal-box">
+<button class="close" onclick="closeBooking()">×</button>
+<h2>Book Your Event</h2>
+<p>Tell us your event details. We will contact you to discuss the package and budget.</p>
+
+<form id="bookingForm" onsubmit="sendBooking(event)">
+<div class="form-grid">
+
+<div class="field full">
+<label>What is your Event?</label>
+<select id="eventType" required>
+<option value="">Select Event</option>
+<option>Wedding</option>
+<option>Reception</option>
+<option>Engagement</option>
+<option>Pre Wedding</option>
+<option>Birthday</option>
+<option>Baby Function</option>
+<option>School / College Event</option>
+<option>Other Event</option>
+</select>
+</div>
+
+<div class="field">
+<label>Event Date</label>
+<input id="eventDate" type="date" required>
+</div>
+
+<div class="field">
+<label>Event Location / Town</label>
+<input id="eventPlace" type="text" placeholder="Example: Dharmapuri" required>
+</div>
+
+<div class="field">
+<label>Budget</label>
+<select id="budget" required>
+<option value="">Select Budget</option>
+<option>Below ₹10,000</option>
+<option>₹10,000 – ₹25,000</option>
+<option>₹25,000 – ₹40,000</option>
+<option>₹40,000 – ₹60,000</option>
+<option>₹60,000+</option>
+<option>Not decided</option>
+</select>
+</div>
+
+<div class="field">
+<label>Your Phone Number</label>
+<input id="customerPhone" type="tel" placeholder="10 digit mobile number" pattern="[0-9]{10}" required>
+</div>
+
+<div class="field full">
+<label>Additional Requirements</label>
+<textarea id="requirements" placeholder="Photography / Video / Album / Frame / Drone etc."></textarea>
+</div>
+
+</div>
+
+<button class="submit-book" type="submit">
+<i class="fa-brands fa-whatsapp"></i> SEND BOOKING REQUEST
+</button>
+<div class="note">The request will open WhatsApp with your entered details.</div>
+</form>
+</div>
+</div>
+
+<script>
+/* MOBILE MENU */
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("show");
+}
+
+/* HERO SLIDER */
+const slides=[...document.querySelectorAll(".slide")];
+const dotsBox=document.getElementById("dots");
+let current=0;
+let timer;
+
+slides.forEach((_,i)=>{
+  const b=document.createElement("button");
+  if(i===0)b.classList.add("active");
+  b.onclick=()=>showSlide(i);
+  dotsBox.appendChild(b);
+});
+
+function showSlide(n){
+  current=(n+slides.length)%slides.length;
+  slides.forEach((s,i)=>s.classList.toggle("active",i===current));
+  [...dotsBox.children].forEach((d,i)=>d.classList.toggle("active",i===current));
+}
+function changeSlide(step){
+  showSlide(current+step);
+  restartSlider();
+}
+function restartSlider(){
+  clearInterval(timer);
+  timer=setInterval(()=>showSlide(current+1),5000);
+}
+restartSlider();
+
+/* BOOKING MODAL */
+function openBooking(){
+  document.getElementById("bookingModal").classList.add("show");
+  document.body.style.overflow="hidden";
+}
+function closeBooking(){
+  document.getElementById("bookingModal").classList.remove("show");
+  document.body.style.overflow="";
+}
+function outsideClose(e){
+  if(e.target.id==="bookingModal") closeBooking();
+}
+
+/* SEND BOOKING TO WHATSAPP */
+function sendBooking(e){
+  e.preventDefault();
+
+  const eventType=document.getElementById("eventType").value;
+  const date=document.getElementById("eventDate").value;
+  const place=document.getElementById("eventPlace").value;
+  const budget=document.getElementById("budget").value;
+  const phone=document.getElementById("customerPhone").value;
+  const req=document.getElementById("requirements").value || "Not specified";
+
+  const msg =
+`*NAVI DIGITAL HIGH TECH STUDIO & VIDEOS*
+*New Booking Request*
+
+Event: ${eventType}
+Date: ${date}
+Location: ${place}
+Budget: ${budget}
+Customer Phone: ${phone}
+Requirements: ${req}`;
+
+  window.open("https://wa.me/919360627826?text="+encodeURIComponent(msg),"_blank");
+  closeBooking();
+}
+</script>
+
+</body>
+</html>
