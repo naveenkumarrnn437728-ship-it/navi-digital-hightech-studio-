@@ -306,15 +306,40 @@ footer{background:var(--dark);color:#fff;padding:38px 0 15px}
 <div class="container">
 <div class="section-title"><h2>OUR <span>GALLERY</span></h2></div>
 <div class="tabs">
-<button class="active">ALL</button><button>WEDDING</button><button>PRE WEDDING</button><button>PORTRAITS</button><button>EVENTS</button><button>FRAMES</button><button>DRONE</button>
+<button class="active" data-filter="all">ALL</button>
+<button data-filter="wedding">WEDDING</button>
+<button data-filter="pre-wedding">PRE WEDDING</button>
+<button data-filter="portraits">PORTRAITS</button>
+<button data-filter="events">EVENTS</button>
+<button data-filter="frames">FRAMES</button>
+<button data-filter="drone">DRONE</button>
 </div>
 <div class="gallery">
-<a class="gallery-item"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=700&q=80" alt="Wedding photography"></a>
-<a class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Wedding couple"></a>
-<a class="gallery-item"><img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=700&q=80" alt="Portrait"></a>
-<a class="gallery-item"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=80" alt="Event"></a>
-<a class="gallery-item"><img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=700&q=80" alt="Photo frame"></a>
-<a class="gallery-item"><img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=700&q=80" alt="Drone photography"></a>
+
+<a class="gallery-item" data-category="wedding">
+<img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=700&q=80" alt="Wedding photography">
+</a>
+
+<a class="gallery-item" data-category="pre-wedding">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Wedding couple">
+</a>
+
+<a class="gallery-item" data-category="portraits">
+<img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=700&q=80" alt="Portrait">
+</a>
+
+<a class="gallery-item" data-category="events">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=80" alt="Event">
+</a>
+
+<a class="gallery-item" data-category="frames">
+<img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=700&q=80" alt="Photo frame">
+</a>
+
+<a class="gallery-item" data-category="drone">
+<img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=700&q=80" alt="Drone photography">
+</a>
+
 </div>
 </div>
 </section>
@@ -492,7 +517,11 @@ footer{background:var(--dark);color:#fff;padding:38px 0 15px}
 </form>
 </div>
 </div>
-
+<!-- GALLERY LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImage" src="" alt="Gallery Preview">
+</div>
 <script>
 /* MOBILE MENU */
 function toggleMenu(){
@@ -526,7 +555,27 @@ function restartSlider(){
   timer=setInterval(()=>showSlide(current+1),5000);
 }
 restartSlider();
+/* GALLERY FILTER */
+const filterButtons = document.querySelectorAll(".tabs button");
+const galleryItems = document.querySelectorAll(".gallery-item");
 
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    galleryItems.forEach(item => {
+      if (filter === "all" || item.dataset.category === filter) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
+});
 /* BOOKING MODAL */
 function openBooking(){
   document.getElementById("bookingModal").classList.add("show");
@@ -539,7 +588,27 @@ function closeBooking(){
 function outsideClose(e){
   if(e.target.id==="bookingModal") closeBooking();
 }
+/* GALLERY LIGHTBOX */
+const galleryImages = document.querySelectorAll(".gallery-item img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
 
+galleryImages.forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImage.src = img.src;
+    lightbox.classList.add("show");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeLightbox(){
+  lightbox.classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+lightbox.addEventListener("click", (e) => {
+  if(e.target === lightbox) closeLightbox();
+});
 /* SEND BOOKING TO WHATSAPP */
 function sendBooking(e){
   e.preventDefault();
